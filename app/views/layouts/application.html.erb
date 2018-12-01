@@ -7,6 +7,7 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500,700" rel="stylesheet">
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
@@ -14,78 +15,85 @@
 
   </head>
 
-  <body class="<%= yield (:body_class) %>">
+  <body class="<%= yield (:body_class) %> mt-5">
+
+  <div class="container">
     <% if flash[:notice] %>
-      <div class="notification is-success global-notification">
+      <div class="alert alert-success alert-dismissible fade show">
         <p class="notice"><%= notice %></p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
       </div>
     <% end %>
 
+
     <% if flash[:alert] %>
-    <div class="notification is-danger global-notification">
+    <div class="alert alert-warning alert-dismissible fade show">
       <p class="alert"><%= alert %></p>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
     </div>
     <% end %>
+    </div>
 
     <div class="container">
     <div class="row">
-    <div class="col">
+    <div class="col-3 logo">
 
-     <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <%= link_to root_path, class:"navbar-item" do %>
-          <h1 class="title is-5"><%= Rails.configuration.application_name %></h1>
+        <%= link_to root_path do %>
+          <img src="/img/logo.png" alt="devJobs" class="mr-3" />devjobs
         <% end  %>
-        <div class="navbar-burger burger" data-target="navbar">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
       </div>
+      <div class="col">
 
-      <div id="navbar" class="navbar-menu">
+      <nav>
+      <div id="navbar" class="navbar-menu mt-4">
         <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+        <%= link_to root_path, class:"navbar-item" do %>Search<% end  %>
+          </div>
+          </div>
           <div class="navbar-item">
             <div class="field is-grouped">
-            <p class="control">
-              <%= link_to 'Post Job', new_job_path, class: "navbar-item button is-primary is-roudned" %>
-            </p>
-            <% if user_signed_in? %>
-
-              <div class="navbar-item has-dropdown is-hoverable">
-                <%= link_to 'Account', edit_user_registration_path, class: "navbar-link" %>
-                <div class="navbar-dropdown is-right">
-                  <%= link_to current_user.name, edit_user_registration_path, class:"navbar-item" %>
-                  <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"navbar-item" %>
-                </div>
-              </div>
-            <% else %>
-            <p class="control">
-              <%= link_to "Sign In", new_user_session_path, class:"navbar-item button" %>
-            </p>
-            <p class="control">
-              <%= link_to "Sign up", new_user_registration_path, class:"navbar-item button"%>
-            </p>
-            <% end %>
+              <%= link_to 'Post Job', new_job_path, class: "navbar-item button" %>
 
           </div>
         </div>
       </div>
+      </div>
+      </nav>
+      </div>
+      <div class="col mt-4 float-right is-right">
+
+      <% if user_signed_in? %>
+
+      <div class="navbar-item has-dropdown is-hoverable float-right is-right">
+          <%= link_to current_user.name, edit_user_registration_path, class:"button navbar-item" %>
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"button navbar-item" %>
+      </div>
+    <% else %>
+    <div class="navbar-item has-dropdown is-hoverable float-right is-right">
+      <%= link_to "Sign In", new_user_session_path, class:"button navbar-item button" %>
+      <%= link_to "Sign up", new_user_registration_path, class:"button navbar-item button"%>
     </div>
-  </nav>
+    <% end %>
+      </div>
+      </div></div>
 
   <section class="section">
-    <div class="container">
+    <div class="container pt-5">
       <%= yield %>
     </div>
   </section>
 
-  <footer class="footer">
+  <footer class="footer m-5">
     <div class="container">
       <div class="content has-text-centered">
-        <p>
-        <small>&copy; Copyright 2018 devJobs. All rights reserved.</small>
-        </p>
+        <small>&copy; 2018 <%= Rails.configuration.application_name %>. All rights reserved.</small>
+        <div class="float-right"><small>Page Rendered in <%= sprintf('%.3f', (Time.now.to_f - @start_time) ) %> seconds</small></div>
       </div>
     </div>
   </footer>
@@ -96,5 +104,13 @@
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', "https://js.stripe.com/v2/", "https://js.stripe.com/v3/", 'data-turbolinks-track': 'reload' %>
+
+  <script type="text/javascript">
+  window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 4000);
+</script>
   </body>
 </html>

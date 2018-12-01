@@ -3,10 +3,117 @@
 @import "jobs";
 @import "stripe";
 
+.section a {
+  color:#546E7A;
+  text-decoration:none;
+  padding-bottom:3px;
+  border-bottom:2px dotted #546E7A;  
+}
+
 .notification {
   border-radius: 0;
 }
 
 .notification:not(:last-child) {
   margin-bottom: 0;
+}
+
+body {
+  background:#F4F3F0;
+  font-family: 'Rubik', sans-serif;
+  color:#546E7A;
+  font-size:14pt;
+  line-height:1.8;
+}
+
+.container {
+  max-width:940px !important;
+}
+
+.logo a {
+  font-size:30pt;
+  letter-spacing:-2px;
+  color:#546E7A;
+  text-decoration:none;
+}
+
+.navbar-item {
+  float:left;
+  margin-top:2px;
+  text-transform:uppercase;
+  font-size:10pt;
+  letter-spacing:1px;
+}
+
+.navbar-item a,.navbar-item a:visited {
+  text-decoration:none;
+  padding-right: 25px;
+  color:#546E7A;
+}
+
+.navbar-item a:hover {
+  color:rgb(5, 20, 27);
+}
+
+.alert p {
+  margin-bottom: 0 !important;
+}
+
+header {
+  margin:100px 0;
+}
+
+header h2 {
+  font-size:18pt;
+  text-align:center;
+  font-weight:500;
+}
+
+header form {
+  width:100%;
+}
+
+header .col {
+  display:block;
+}
+
+input[type=text], input[type=email], input[type=password], select, textarea{
+  background:#fff;
+  padding:10px 15px !important;
+  border:1px solid #E2E0E0;
+  color:#546E7A;
+  border-radius: 8px;
+  margin-right:15px;
+  width:100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size:12pt;
+}
+
+input[type=submit] {
+  padding:10px 15px !important;
+  border-radius: 8px;
+  margin-right:15px;
+  width:100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size:12pt;
+  background:#FBE57F;
+  color:#546E7A;
+  border:1px solid #FBE57F;
+  width:100%;
+}
+
+hr {
+  border:none;
+  height:1px;
+  border-bottom:5px solid #E6E2DB;
+}
+
+.job {
+  margin:30px 0;
+  padding:30px 0;
+  border-bottom:1px solid #E6E2DB;
 }

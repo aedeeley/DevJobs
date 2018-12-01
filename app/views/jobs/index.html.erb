@@ -1,41 +1,43 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Jobs</h1>
+<header>
+  <h2>Search our job board for free, or post a job for $10 per 30 days</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Url</th>
-      <th>Job type</th>
-      <th>Location</th>
-      <th>Job author</th>
-      <th>Remote ok</th>
-      <th>Apply url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <form class="mt-5">
+  <div class="container">
+  <div class="row">
+  <div class="col-5">
+      <input type="text" id="keywords" placeholder="Keywords" /> 
+    </div>
+  <div class="col">
+      <select>
+        <option default>Industry</option>
+        <option>Design</option>
+        <option>Development</option>
+        <option>DevOps</option>
+        <option>ServerAdmin</option>
+      </select>
+  </div>
+  <div class="col">
+      <input type="text" id="location" placeholder="Location" /> 
+  </div>
+  <div class="col-2">
+    <input type="submit" value="Search Jobs" /> 
+  </div>
+  </div>
+</div>
+</form>
+</header>
 
-  <tbody>
+<hr class="mt-5 pt-5 mb-5 pb-5" />
+
+
+
     <% @jobs.each do |job| %>
-      <tr>
-        <td><%= job.title %></td>
-        <td><%= job.description %></td>
-        <td><%= job.url %></td>
-        <td><%= job.job_type %></td>
-        <td><%= job.location %></td>
-        <td><%= job.job_author %></td>
-        <td><%= job.remote_ok %></td>
-        <td><%= job.apply_url %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="job">
+        <h3><%= link_to job.title, job %></h3>
+        <p><%= job.description %></p>
+        <small><%= job.job_type %> <%= job.location %> <%= job.job_author %> <%= job.remote_ok %> <%= job.apply_url %>  <%= link_to 'Edit', edit_job_path(job) %> <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </small>
+        </div>
     <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Job', new_job_path %>
