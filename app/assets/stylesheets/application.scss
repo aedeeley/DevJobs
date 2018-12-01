@@ -21,13 +21,13 @@
 body {
   background:#F4F3F0;
   font-family: 'Rubik', sans-serif;
-  color:#546E7A;
-  font-size:14pt;
+  color:#B4AB9C;
+  font-size:13pt;
   line-height:1.8;
 }
 
 .container {
-  max-width:940px !important;
+  max-width:980px !important;
 }
 
 .logo a {
@@ -41,7 +41,7 @@ body {
   float:left;
   margin-top:2px;
   text-transform:uppercase;
-  font-size:10pt;
+  font-size:11pt;
   letter-spacing:1px;
 }
 
@@ -64,9 +64,10 @@ header {
 }
 
 header h2 {
-  font-size:18pt;
+  font-size:20pt;
   text-align:center;
-  font-weight:500;
+  font-weight:300;
+  color:#546E7A;
 }
 
 header form {
@@ -116,4 +117,13 @@ hr {
   margin:30px 0;
   padding:30px 0;
   border-bottom:1px solid #E6E2DB;
+}
+
+.job h3 a {
+  color:#736957;
+  border:none;
+}
+
+.show strong {
+  color:#736957;
 }
