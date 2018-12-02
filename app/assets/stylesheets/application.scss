@@ -37,6 +37,10 @@ body {
   text-decoration:none;
 }
 
+h2.title, .subtitle {
+  color:#546E7A;
+}
+
 .navbar-item {
   float:left;
   margin-top:2px;
@@ -66,7 +70,7 @@ header {
 header h2 {
   font-size:20pt;
   text-align:center;
-  font-weight:300;
+  font-weight:500;
   color:#546E7A;
 }
 
@@ -78,11 +82,11 @@ header .col {
   display:block;
 }
 
-input[type=text], input[type=email], input[type=password], select, textarea{
+input[type=text], input[type=email], input[type=password], input[type=url], select, textarea {
   background:#fff;
   padding:10px 15px !important;
   border:1px solid #E2E0E0;
-  color:#546E7A;
+  color:#736957 !important;
   border-radius: 8px;
   margin-right:15px;
   width:100%;
@@ -92,20 +96,26 @@ input[type=text], input[type=email], input[type=password], select, textarea{
   font-size:12pt;
 }
 
+input[type=checkbox] {
+  margin-right:5px;
+}
+
 input[type=submit] {
   padding:10px 15px !important;
   border-radius: 8px;
-  margin-right:15px;
   width:100%;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   font-size:12pt;
+  font-weight:500;
   background:#FBE57F;
   color:#546E7A;
   border:1px solid #FBE57F;
   width:100%;
 }
+
+
 
 hr {
   border:none;
@@ -126,4 +136,51 @@ hr {
 
 .show strong {
   color:#736957;
+}
+
+
+label {
+  margin-top:20px;
+}
+
+.hint {
+  font-size:10pt;
+  font-style:italic;
+}
+
+abbr {
+  float:right;
+  margin-left:5px;
+}
+
+.btn {
+  padding:9px 15px !important;
+  border-radius: 8px;
+}
+
+.navbar-item .btn {
+  margin-left:5px;
+  font-size:10pt;
+}
+
+.btn-primary {
+  background:#fff;
+  color:#546E7A;
+  border:1px solid #E7E0E0;
+}
+
+.btn-primary:hover {
+  background:rgb(245, 242, 242);
+  color:rgb(57, 81, 92);
+  border:1px solid rgb(212, 202, 202);
+}
+
+.btn-secondary {
+  background:#546E7A;
+  color:#fff !important;
+  border:1px solid #546E7A;
+}
+
+.btn-secondary:hover {
+  background:rgb(65, 88, 99);
 }

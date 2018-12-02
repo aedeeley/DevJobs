@@ -71,6 +71,7 @@ gem 'mini_magick', '~> 4.8'
 gem 'stripe', '~> 4.2'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'rails-autocomplete', '~> 2.0', '>= 2.0.1'
+gem 'ransack', '~> 2.1'
 # gem 'trix', '~> 0.11.1'
 group :development, :test do
   gem 'better_errors'

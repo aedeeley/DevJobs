@@ -15,4 +15,9 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update, keys: [:name])
     end
 
+    def index
+      @q = Job.ransack(params[:q])
+      @jobs = @q.result(distinct: true)
+    end
+
 end

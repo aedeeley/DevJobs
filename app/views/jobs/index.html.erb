@@ -1,37 +1,30 @@
 
 <header>
-  <h2>Search our job board for free, or post a job for $10 per 30 days</h2>
+  <h2 class="mb-5">Search our job board for free, or post a job for $10 per 30 days</h2>
 
-  <%= form_tag(jobs_path) do %>
-    <%= text_field_tag :description %>
-    <%= submit_tag 'Search' %>
-  <% end %>
-
-  <form class="mt-5">
+  <%= form_tag(jobs_path, method: :get) do %>
+    
   <div class="container">
   <div class="row">
   <div class="col-5">
-      <input type="text" id="keywords" placeholder="Keywords" /> 
+  <%= text_field_tag :description, params[:description], placeholder: "Keywords" %>
     </div>
   <div class="col">
-      <select>
-        <option default>Industry</option>
-        <option>Design</option>
-        <option>Development</option>
-        <option>DevOps</option>
-        <option>ServerAdmin</option>
-      </select>
+  <%= select_tag :industry, params[:industry], :prompt => "Industry" %>
   </div>
   <div class="col">
-      <input type="text" id="location" placeholder="Location" /> 
+  <%= text_field_tag :location, params[:location], placeholder: "Location" %>
   </div>
   <div class="col-2">
-    <input type="submit" value="Search Jobs" /> 
+  <%= submit_tag 'Search Jobs', name: nil %>
   </div>
   </div>
 </div>
-</form>
+<% end %>
 </header>
+
+
+
 
 <hr class="mt-5 pt-5 mb-5 pb-5" />
 
