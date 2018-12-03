@@ -3,6 +3,7 @@
 @import "jobs";
 @import "stripe";
 @import "hover";
+@import "animate";
 
 .hvr-grow:hover,
 .hvr-grow:focus,
@@ -92,6 +93,16 @@ h2.title, .subtitle {
 
 header {
   margin:80px 0;
+  text-align:center;
+}
+
+header.subpage {
+  margin:0 0 40px 0;
+}
+
+header .btn {
+  border-bottom:none;
+
 }
 
 header h2 {
@@ -154,18 +165,6 @@ hr {
   border:none;
   height:1px;
   border-bottom:5px solid #E6E2DB;
-  margin-bottom:35px;
-}
-
-.job {
-  margin-bottom:35px;
-  padding-bottom:35px;
-  border-bottom:1px solid #E6E2DB;
-}
-
-.job h3 a {
-  color:#736957;
-  border:none;
 }
 
 .show strong {
@@ -240,7 +239,32 @@ abbr {
 }
 
 .job {
+  border-bottom:1px solid #E6E2DB;
+  -webkit-transition: all .3s; /* Safari */
+  transition: all .3;
+}
+
+.job:hover {
+  background:rgba(0,0,0,0.02);
+}
+.show .job {
+  margin-bottom:40px;
+}
+
+.show .job:hover {
+  background:transparent;
+}
+
+.show .btn {
+  border-bottom:none !important;
+}
+
+.job a {
+  padding:35px 20px;
+  display:block;
   clear:both;
+  text-decoration:none;
+  border:none;
 }
 
 .job h3 {
@@ -249,29 +273,29 @@ abbr {
   float:left;
   margin-bottom:0px !important;
   margin-right:20px;
+  color:#736957;
+  border:none;
 }
 
-.job p {
+.job a p {
   font-size:11pt;
   margin-bottom:0px !important;
+  color:#B4AB9C;
 }
 
 .job-logo, .job-info {
-  display:block;
+  display:inline-block;
   float:left;
 }
 
 .job-logo {
-  width:20%;
+  width:15%;
 }
 
-.job-logo img {
-  width:80px;
-  height:auto;
-}
-
-.job-info {
-  width:80%;
+.job a .job-info {
+  width:85%;
+  margin-bottom:35px;
+  color:#736957;
 }
 
 .type {
@@ -294,4 +318,52 @@ abbr {
   background:#FBE57F;
   color:#A5954B;
   text-shadow: none !important;
+}
+
+
+
+.pagination {
+  text-align: center;
+  display:block;
+  margin:0 auto;
+  padding: 2em;
+  cursor: default; }
+  .pagination a, .pagination span {
+    padding: 0.2em 0.3em; border:none; text-decoration:none !important;}
+  .pagination .disabled {
+    color: rgb(211, 208, 201); }
+  .pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: #FBE57F;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+  .pagination a {
+    text-decoration: none;
+    color: #736957; }
+    .pagination a:hover, .pagination a:focus {
+      text-decoration: underline; }
+
+header .btn-primary {
+  padding:9px 60px !important;
+}
+
+header .btn-tertiary {
+  background:#736957;
+  color:#B4AB9C;
+}
+
+.show .btn {
+  float:left;
+  margin-right:24px;
+}
+
+.show .btn-success {
+  color:#fff !important;
 }

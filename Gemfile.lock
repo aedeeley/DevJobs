@@ -44,8 +44,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    animate-rails (1.0.10)
-      rails
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
@@ -279,6 +277,8 @@ GEM
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
+    will_paginate (3.1.6)
+    wow-rails (0.0.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -286,7 +286,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  animate-rails (~> 1.0, >= 1.0.10)
   better_errors
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.1, >= 4.1.3)
@@ -318,6 +317,8 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  will_paginate
+  wow-rails (~> 0.0.1)
 
 RUBY VERSION
    ruby 2.5.3p105

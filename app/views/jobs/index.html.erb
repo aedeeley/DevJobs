@@ -1,31 +1,42 @@
+<header class="subpage">
 
+  <%= link_to 'All', jobs_path, class: "btn btn-primary" %> 
+  <%= link_to 'Full-time', jobs_path(job_type: "Full-time"), class: "btn btn-secondary" %> 
+  <%= link_to 'Part-time', jobs_path(job_type: "Part-time"), class: "btn btn-secondary" %> 
+  <%= link_to 'Contract', jobs_path(job_type: "Contract"), class: "btn btn-secondary" %> 
+  <%= link_to 'Freelance', jobs_path(job_type: "Freelance"), class: "btn btn-secondary" %> 
 
+</header>
 
-  <%= form_tag(jobs_path, method: :get) do %>
+<hr />
+
+  <% @jobs.each do |job| %>
     
-  <div class="row mt-5 pt-5">
-  <div class="col-5">
-  <%= text_field_tag :description, params[:description], placeholder: "Keywords" %>
-    </div>
-  <div class="col">  
-  <%= select_tag :industry, params[:industry], :prompt => "Industry" %>
-  </div>
-  <div class="col">
-  <%= text_field_tag :location, params[:location], placeholder: "Location" %>
-  </div>
-  <div class="col-2">
-  <%= submit_tag 'Search Jobs', name: nil %>
-  </div>
-  </div>
-<% end %>
+      <div class="job clearfix hvr-grow wow fadeInUp">
+      <%= link_to job do %>
+        <div class="job-logo">
+          <% if !job.avatar.file.nil? %>
+            <%= link_to image_tag(job.avatar_url(:thumb), alt: job.job_author, width: 90, height: 90), job.url %>
+          <% elsif job.avatar.file.nil? %>
+            <img src="img/logo.png" style="width:53px;height:auto;" />
+          <% end %>
+          </div>
+        <div class="job-info">
+          <div class="meta">
+            <h3><%= sanitize(truncate(job.title, length: 40)) %></h3>
+            <div class="type"><%= job.job_type %></div>
+            <div class="type remote"><%= job.remote_ok %></div> 
 
-<hr class="pb-5 pb-5" />
-
-    <% @jobs.each do |job| %>
-      <div class="job">
-        <h3><%= link_to job.title, job %></h3>
-        <p><%= job.description %></p>
-        <small><%= job.job_type %> <%= job.location %> <%= job.job_author %> <%= job.remote_ok %> <%= job.apply_url %>  <%= link_to 'Edit', edit_job_path(job) %> | <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </small>
+            <small class="float-right">
+              <strong><%= sanitize(truncate(job.job_author, length: 40)) %></strong> in <i><%= sanitize(truncate(job.location, length: 40)) %></i></small>
+            </div>
+          
+            <p><%= sanitize(truncate(job.description, length: 180)) %></p>
+          </div>
         </div>
+      <% end  %>
     <% end %>
+
+
+
+      <%= will_paginate @jobs %>

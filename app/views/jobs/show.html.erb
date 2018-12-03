@@ -1,45 +1,38 @@
+<div class="row">
+  <div class="col">
 <div class="show">
-<p>
-  <strong>Title:</strong>
-  <%= @job.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @job.description %>
-</p>
+  <div class="job clearfix">
+        <div class="job-logo mb-4">
+          <% if !@job.avatar.file.nil? %>
+            <%= link_to image_tag(@job.avatar_url(:thumb), alt: @job.job_author, width: 90, height: 90), @job.url %>
+          <% end %>
+          </div>
+        <div class="job-info">
+          <div class="meta">
+            <h3><%= @job.title %></h3>
+            <div class="type"><%= @job.job_type %></div>
+            <div class="type remote"><%= @job.remote_ok %></div> 
 
-<p>
-  <strong>Url:</strong>
-  <%= @job.url %>
-</p>
+            <small class="float-right">
+              <strong><%= @job.job_author %></strong> in <i><%= @job.location %></i></small>
+            </div>
+          
+            <p><%= @job.description %></p>
+          </div>
+        </div>
 
-<p>
-  <strong>Job type:</strong>
-  <%= @job.job_type %>
-</p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @job.location %>
-</p>
 
-<p>
-  <strong>Job author:</strong>
-  <%= @job.job_author %>
-</p>
+<p><p><a href="<%= @job.url %>" target="_blank" class="btn btn-secondary">Visit company website</a></p>
 
-<p>
-  <strong>Remote ok:</strong>
-  <%= @job.remote_ok %>
-</p>
+<p><a href="<%= @job.apply_url %>" target="_blank" class="btn btn-success">Apply to this job!</a></p>
 
-<p>
-  <strong>Apply url:</strong>
-  <%= @job.apply_url %>
-</p>
-
+<% if current_user.try(:admin) || job_author(@job) %>
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to 'Back', jobs_path %>
+<% end %>
+</div>
 
+</div>
 </div>

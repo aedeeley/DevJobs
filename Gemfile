@@ -71,6 +71,7 @@ gem 'stripe', '~> 4.2'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'hover-rails', '~> 2.3', '>= 2.3.2.1'
+gem 'will_paginate'
 group :development, :test do
   gem 'better_errors'
   gem 'guard'
