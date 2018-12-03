@@ -2,6 +2,22 @@
 @import "functions";
 @import "jobs";
 @import "stripe";
+@import "hover";
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.02);
+}
+
+.hvr-grow-rotate.opposite {
+  -webkit-transform: perspective(15px) translateZ(-40) !important;
+  transform: perspective(1px) translateZ(-40) !important;
+}
+
+::selection { 
+  background: #FBE57F !important;
+}
 
 .section a {
   color:#546E7A;
@@ -24,6 +40,10 @@ body {
   color:#B4AB9C;
   font-size:13pt;
   line-height:1.8;
+}
+
+.close {
+  display:none !important;
 }
 
 .container {
@@ -56,26 +76,28 @@ h2.title, .subtitle {
 
 .navbar-item a,.navbar-item a:visited {
   text-decoration:none;
-  padding-right: 25px;
+  margin-right:25px;
   color:#546E7A;
 }
 
 .navbar-item a:hover {
-  color:rgb(5, 20, 27);
+  color:#546E7A;
+  border-bottom:1px dashed #546E7A;
 }
 
 .alert p {
   margin-bottom: 0 !important;
+  text-align:center;
 }
 
 header {
-  margin:100px 0;
+  margin:80px 0;
 }
 
 header h2 {
-  font-size:20pt;
+  font-size:22pt;
   text-align:center;
-  font-weight:500;
+  font-weight:400;
   color:#546E7A;
 }
 
@@ -91,7 +113,6 @@ input[type=text], input[type=email], input[type=password], input[type=url], sele
   background:#fff;
   padding:10px 15px !important;
   border:1px solid #E2E0E0;
-  color:#736957 !important;
   border-radius: 8px;
   margin-right:15px;
   width:100%;
@@ -99,6 +120,11 @@ input[type=text], input[type=email], input[type=password], input[type=url], sele
   -moz-appearance: none;
   appearance: none;
   font-size:12pt;
+  color:#B4AB9C !important;
+}
+
+::placeholder {
+  color:#B4AB9C !important;
 }
 
 input[type=checkbox] {
@@ -120,17 +146,20 @@ input[type=submit] {
   width:100%;
 }
 
-
+textarea:focus, select:focus, input:focus {
+  color:#736957 !important;
+}
 
 hr {
   border:none;
   height:1px;
   border-bottom:5px solid #E6E2DB;
+  margin-bottom:35px;
 }
 
 .job {
-  margin:30px 0;
-  padding:30px 0;
+  margin-bottom:35px;
+  padding-bottom:35px;
   border-bottom:1px solid #E6E2DB;
 }
 
@@ -143,9 +172,14 @@ hr {
   color:#736957;
 }
 
+h3.title {
+  color:#736957;
+}
+
 
 label {
   margin-top:20px;
+  color:#736957;
 }
 
 .hint {
@@ -156,6 +190,7 @@ label {
 abbr {
   float:right;
   margin-left:5px;
+  color:#ff0000;
 }
 
 .btn {
@@ -164,7 +199,7 @@ abbr {
 }
 
 .navbar-item .btn {
-  margin-left:5px;
+  margin:0 0 0 5px;
   font-size:10pt;
 }
 
@@ -177,15 +212,86 @@ abbr {
 .btn-primary:hover {
   background:rgb(245, 242, 242);
   color:rgb(57, 81, 92);
-  border:1px solid rgb(212, 202, 202);
+  border:1px solid rgb(212, 202, 202) !important;
 }
 
 .btn-secondary {
   background:#546E7A;
   color:#fff !important;
-  border:1px solid #546E7A;
+  border:1px solid #546E7A !important;
 }
 
 .btn-secondary:hover {
   background:rgb(65, 88, 99);
+}
+
+abbr {
+  text-decoration:none !important;
+}
+
+.meta {
+  width:100%;
+  display:inline-block;
+  vertical-align:center;
+}
+
+.meta div {
+  vertical-align:center;
+}
+
+.job {
+  clear:both;
+}
+
+.job h3 {
+  font-size:18pt;
+  display:block;
+  float:left;
+  margin-bottom:0px !important;
+  margin-right:20px;
+}
+
+.job p {
+  font-size:11pt;
+  margin-bottom:0px !important;
+}
+
+.job-logo, .job-info {
+  display:block;
+  float:left;
+}
+
+.job-logo {
+  width:20%;
+}
+
+.job-logo img {
+  width:80px;
+  height:auto;
+}
+
+.job-info {
+  width:80%;
+}
+
+.type {
+  font-size:7pt;
+  color:#fff;
+  background:#28B51F;
+  padding:1px 8px;
+  margin:6px 5px 0 0px;
+  border-radius: 4px;
+  display:block;
+  width:auto;
+  float:left;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-weight:500;
+  text-shadow: 1px 1px #17920F;
+}
+
+.remote {
+  background:#FBE57F;
+  color:#A5954B;
+  text-shadow: none !important;
 }

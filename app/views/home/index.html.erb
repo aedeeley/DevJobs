@@ -1,2 +1,42 @@
-<h1>Welcome to <%= Rails.configuration.application_name %>!</h1>
-<p class="lead">Use this document as a way to quickly start any new project by generating files, installing gems, and more. </p>
+
+<header>
+  <h2 class="mb-5">Search our job board for free, or post a job for $20</h2>
+
+  <%= form_tag(root_path, method: :get) do %>
+    
+  <div class="row">
+  <div class="col-5">
+  <%= text_field_tag :description, params[:description], placeholder: "Keywords" %>
+    </div>
+  <div class="col">  
+  <%= select_tag :industry, params[:industry], :prompt => "Industry" %>
+  </div>
+  <div class="col">
+  <%= text_field_tag :location, params[:location], placeholder: "Location" %>
+  </div>
+  <div class="col-2">
+  <%= submit_tag 'Search Jobs', name: nil, class: "hvr-bounce-in" %>
+  </div>
+  </div>
+<% end %>
+</header>
+
+<hr />
+
+    <% @jobs.each do |job| %>
+    
+      <div class="job clearfix hvr-grow">
+      <%= link_to job do %>
+        <div class="job-logo"><img src="img/sample.png" /></div>
+        <div class="job-info">
+          <div class="meta"><h3><%= link_to job.title, job %></h3><div class="type"><%= job.job_type %></div><div class="type remote"><%= job.remote_ok %></div> 
+
+          <small class="float-right"><strong><%= job.job_author %></strong> in <i><%= job.location %></i></small>
+          </div>
+          
+          <p><%= sanitize(truncate(job.description, length: 180)) %></p>
+        </div>
+      </div>
+      <% end  %>
+    <% end %>
+

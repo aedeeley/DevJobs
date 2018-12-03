@@ -28,8 +28,10 @@
     </div>
     <div class="row">
       <div class="col">
-        <%= f.input :job_type, collection: Job::JOB_TYPES, prompt: "Select a job type" %><br />
-        <small><%= f.input :remote_ok, required: false, input_html: { class: "checkbox" }, wrapper: false, label: false %> Work can be done remotely?</small>
+        <%= f.input :job_type, collection: Job::JOB_TYPES, prompt: "Select a job type" %>
+        </div>
+        <div class="col pt-4">       
+        <small><label class="boolean optional checkbox pt-1" for="job_remote_ok"><%= f.input :remote_ok, required: false, input_html: { class: "checkbox" }, wrapper: false, label: false %> Work can be done remotely?</label></small>
       </div>
     </div>
   <div class="row">
@@ -39,7 +41,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <label class="label">Logo image</label>
+      <label class="label">Logo upload</label>
       <div class="file">
         <%= f.input :avatar, as: :file, require: false, input_html: { class: "file-input job-avatar" }, label: false, wrapper: false %>
       </div>
